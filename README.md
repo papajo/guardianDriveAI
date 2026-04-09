@@ -10,23 +10,34 @@ A native Android proof-of-concept for the Guardian AI Drive driver monitoring ap
 - Basic overlay stub that can display a floating monitoring indicator above other apps
 - Planning and requirements documents stored in `.planning/`
 
-## Next step
+## Build & Test
 
-1. Open the project in Android Studio or run Gradle from the `android/` directory.
-2. Grant overlay permission and battery optimization exemption when prompted.
-3. Start the monitoring service with the app buttons.
+### Cloud Build (Recommended for minimal disk usage)
 
-## Build
+1. Connect your GitHub repo to BrowserStack App Automate
+   - Go to [https://www.browserstack.com/app-automate/configure-ci](https://www.browserstack.com/app-automate/configure-ci)
+   - Select GitHub and authorize
+   - Link the `guardianDriveAI` repo
 
-From the `android/` folder:
+2. Push to `main` branch
+   ```bash
+   git push origin main
+   ```
+   BrowserStack detects the `.browserstack.yml` config and builds remotely
+
+3. Test on cloud devices
+   - Log into BrowserStack App Automate
+   - Find your build and launch it on a Google Pixel 8 (or any device)
+   - Grant overlay permission and battery optimization exemption when prompted
+   - Start the monitoring service with the app buttons
+
+### Local Build (requires Android SDK ~10-15 GB)
+
+If you have the Android SDK installed locally:
 
 ```bash
-# Use your installed Gradle or Android Studio
-./gradlew assembleDebug
-```
-
-If the Gradle wrapper is not available, use a local Gradle installation:
-
-```bash
+cd android
 gradle assembleDebug
 ```
+
+This generates `app/build/outputs/apk/debug/app-debug.apk`

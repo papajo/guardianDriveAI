@@ -1,0 +1,15 @@
+app_automate:
+  platforms:
+    - android
+  android_version: "14"
+  device: "Google Pixel 8"
+
+build:
+  working_directory: "android"
+  script:
+    - gradle assembleDebug
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
