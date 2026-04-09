@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guardian AI Drive Web POC</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff5f57'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='52' fill='%23fff' font-family='Arial,sans-serif'%3E G %3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Guardian AI Drive — Web POC</h1>
+      <p>Browser-based driver monitoring prototype using webcam and audio.</p>
+    </header>
+
+    <section class="controls">
+      <button id="startButton">Start Monitor</button>
+      <button id="stopButton" disabled>Stop Monitor</button>
+      <p class="status" id="status">Status: idle</p>
+    </section>
+
+    <section class="monitor-panel">
+      <div class="video-panel">
+        <video id="inputVideo" autoplay muted playsinline></video>
+        <canvas id="outputCanvas"></canvas>
+        <div class="alert-overlay" id="alertOverlay"></div>
+      </div>
+      <div class="info-card">
+        <h2>Live Metrics</h2>
+        <ul>
+          <li><strong>Drowsiness</strong>: <span id="drowsinessState">safe</span></li>
+          <li><strong>Distraction</strong>: <span id="distractionState">safe</span></li>
+          <li><strong>Sound</strong>: <span id="audioState">quiet</span></li>
+          <li><strong>Blinks / min</strong>: <span id="blinkRate">0</span></li>
+          <li><strong>Last alert</strong>: <span id="lastAlert">none</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h2>How to use</h2>
+      <ol>
+        <li>Allow camera and microphone access.</li>
+        <li>Position your face in the webcam view.</li>
+        <li>Start the monitor and follow the live status.</li>
+      </ol>
+      <p class="disclaimer">This POC uses browser APIs to approximate driver drowsiness and distraction. It is not a certified safety system.</p>
+
+      <h3>Troubleshooting</h3>
+      <ul>
+        <li><strong>WebAssembly errors:</strong> Use Chrome or Firefox (latest versions)</li>
+        <li><strong>Permission denied:</strong> Allow camera and microphone in browser settings</li>
+        <li><strong>Face not detected:</strong> Ensure good lighting and face centered in camera</li>
+        <li><strong>Audio not working:</strong> Check microphone permissions and volume</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js?v=1"></script>
+  <script type="module" src="app-simple.js?v=1"></script>
+</body>
+</html>

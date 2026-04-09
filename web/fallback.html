@@ -1,0 +1,56 @@
+## Alternative: Simple Face Detection (Fallback)
+
+If MediaPipe doesn't work in your browser, here's a simpler version using face-api.js:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+  <video id="video" autoplay muted></video>
+  <canvas id="canvas"></canvas>
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    async function start() {
+      await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights/');
+      await faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights/');
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+          video.onloadedmetadata = () => {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            detectFaces();
+          };
+        });
+    }
+
+    async function detectFaces() {
+      const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+        .withFaceLandmarks();
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(video, 0, 0);
+
+      if (detections.length > 0) {
+        const landmarks = detections[0].landmarks;
+        faceapi.draw.drawFaceLandmarks(canvas, landmarks);
+        console.log('Face detected with', landmarks.positions.length, 'landmarks');
+      }
+
+      requestAnimationFrame(detectFaces);
+    }
+
+    start();
+  </script>
+</body>
+</html>
+```
+
+This uses face-api.js instead of MediaPipe and should work in more browsers.

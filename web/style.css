@@ -1,0 +1,159 @@
+:root {
+  --bg: #070a13;
+  --panel: #101625;
+  --accent: #ff5f57;
+  --accent-2: #56ccff;
+  --text: #f1f4ff;
+  --muted: #7b86a1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, rgba(86, 204, 255, 0.12), transparent 25%),
+    linear-gradient(180deg, #0b1225 0%, #060912 100%);
+}
+
+.app-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #fff;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.status {
+  margin: 0;
+  color: var(--muted);
+}
+
+.monitor-panel {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.video-panel {
+  position: relative;
+  background: #04070f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+video,
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.alert-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  border: 6px solid rgba(255, 95, 87, 0.85);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.alert-overlay.active {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 95, 87, 0.3); }
+  50% { box-shadow: 0 0 0 30px rgba(255, 95, 87, 0); }
+}
+
+.info-card {
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-card h2 {
+  margin-top: 0;
+}
+
+.info-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.info-card li {
+  margin: 12px 0;
+  font-size: 1rem;
+}
+
+.info-card strong {
+  color: var(--text);
+}
+
+.notes {
+  margin-top: 28px;
+  color: var(--muted);
+}
+
+.notes h2 {
+  margin-bottom: 12px;
+}
+
+.disclaimer {
+  margin-top: 16px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .monitor-panel {
+    grid-template-columns: 1fr;
+  }
+}

@@ -31,7 +31,33 @@ A native Android proof-of-concept for the Guardian AI Drive driver monitoring ap
    - Grant overlay permission and battery optimization exemption when prompted
    - Start the monitoring service with the app buttons
 
-### Local Build (requires Android SDK ~10-15 GB)
+### Web Proof of Concept
+
+A web-based prototype is available in the `web/` folder. It uses the webcam and microphone to simulate drowsiness/distraction detection with face-api.js (more browser-compatible than MediaPipe).
+
+To run locally:
+
+```bash
+cd web
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000` in your browser.
+
+**Features:**
+- Face detection and landmark tracking
+- Drowsiness detection (eye closure, blink rate)
+- Distraction detection (head turn)
+- Audio monitoring for loud sounds
+- Real-time visual feedback
+
+**Troubleshooting:**
+- **Permission issues**: Allow camera and microphone in browser settings
+- **Face detection fails**: Ensure good lighting and face centered in camera
+- **Audio not working**: Check microphone permissions and volume
+- **Works in**: Chrome, Firefox, Safari, Edge
+
+### Local Android Build (requires Android SDK ~10-15 GB)
 
 If you have the Android SDK installed locally:
 
