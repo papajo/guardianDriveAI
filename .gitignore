@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Gradle
+.gradle/
+/build/
+/android/.gradle/
+/android/app/build/
+**/build/
+
+# Android Studio
+*.iml
+.idea/
+*.hprof
+
+# Local files
+local.properties
+
+# Kotlin
+*.kotlin_module
+
+# Logs
+*.log
+
+# Generated files
+**/*.log
+**/*.tmp
