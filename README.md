@@ -67,3 +67,13 @@ gradle assembleDebug
 ```
 
 This generates `app/build/outputs/apk/debug/app-debug.apk`
+
+### iOS Scaffold
+
+An iOS SwiftUI scaffold is available in the `ios/` folder for future App Store development.
+
+- `ios/README.md` contains setup guidance and App Store preparation notes
+- `ios/GuardianAIDriveApp.swift`, `ios/ContentView.swift`, and `ios/MonitorManager.swift` contain the initial app shell
+- `ios/Info.plist` includes basic app metadata and camera/microphone usage descriptions
+
+Open an Xcode project and add these files to start the iOS implementation.
