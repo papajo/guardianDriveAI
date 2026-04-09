@@ -51,7 +51,33 @@
 - [Offline voice commands] — Privacy concern; all processing remains on-device without voice activation
 
 ## Traceability Section
-*(To be filled during roadmap creation)*
+
+| REQ-ID | Phase |
+|--------|-------|
+| BACK-01 | 1 |
+| BACK-02 | 1 |
+| BACK-03 | 1 |
+| BACK-04 | 1 |
+| DROWS-01 | 2 |
+| DROWS-02 | 2 |
+| DROWS-03 | 2 |
+| DROWS-04 | 2 |
+| DIST-01 | 2 |
+| DIST-02 | 2 |
+| DIST-03 | 2 |
+| DIST-04 | 2 |
+| AUDIO-01 | 3 |
+| AUDIO-02 | 3 |
+| AUDIO-03 | 3 |
+| AUDIO-04 | 3 |
+| ALERT-01 | 4 |
+| ALERT-02 | 4 |
+| ALERT-03 | 4 |
+| ALERT-04 | 4 |
+| UACC-03 | 4 |
+| UACC-01 | 5 |
+| UACC-02 | 5 |
+
 
 ---
 *Requirements defined: 2026-04-08*

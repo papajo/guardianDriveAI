@@ -1,0 +1,7 @@
+Product Name: Guardian AI Drive
+The Concept: A low-cost, hardware-agnostic driver safety system that runs on a standard smartphone mounted in the car, detecting drowsiness and distraction without needing expensive dedicated hardware.
+MediaPipe Tech Used: Face Mesh (specifically Iris tracking), Face Detection, Audio Classification.
+Trend Alignment:
+Automotive Safety: Rise in demand for ADAS (Advanced Driver Assistance Systems) in budget vehicles.
+Distracted Driving: Increasing regulations against phone use while driving.
+How it Works: The app uses the phone's front-facing camera. Face Mesh tracks the eyelids to detect slow blinks (microsleep) and Iris Tracking monitors head direction to detect if the driver is looking at their phone or away from the road. Simultaneously, Audio Classification listens for aggressive honking or tire screeching. If danger is detected, the app emits a loud alert to wake the driver.
